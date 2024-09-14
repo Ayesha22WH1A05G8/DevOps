@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Registration</title>
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('1.jpg');
+        background-repeat: no-repeat;
+        background-size: 95%; 
+        background-position: center; 
+        background-attachment: fixed; 
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.8); 
+    }
+
+    .login-container {
+        padding: 20px;
+    }
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-container {
+        position: relative;
+        width: 100%; 
+        margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+        padding: 10px 10px 10px 40px; 
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    button[type="submit"] {
+        background-color: #ff1493; 
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #d01378; 
+    }
+
+    .success-message {
+        display: none;
+        text-align: center;
+        color: green;
+        margin-top: 20px;
+    }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("subscriptionForm");
+            const successMessage = document.getElementById("successMessage");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+
+                const firstName = document.getElementById("firstName").value;
+                const lastName = document.getElementById("lastName").value;
+                const dob = document.getElementById("dob").value;
+                const skill = document.getElementById("skill").value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (firstName && lastName && dob && skill && email && password && confirmPassword) {
+                    if (password === confirmPassword) {
+                        successMessage.style.display = "block"; // Show success message
+                        successMessage.innerText = "Registration Successful!";
+                    } else {
+                        alert("Passwords do not match!");
+                    }
+                } else {
+                    alert("Please fill out all fields.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Artist Registration Form</h2>
+            <form id="subscriptionForm">
+                <div class="input-container">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter the first name" required>
+                </div>
+                <div class="input-container">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter the last name" required>
+                </div>
+                <div class="input-container">
+                    <label>Date of Birth</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="input-container">
+                    <label>Artist Skill</label>
+                    <input type="text" id="skill" placeholder="Enter your skill" required>
+                </div>
+                <div class="input-container">
+                    <label>E-mail</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-container">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-container">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div class="success-message" id="successMessage">
+                    <p>Registration Successful!</p>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
