@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Changed background to white */
+            color: #000; /* Changed text color to black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #f4f4f4; /* Changed container background to light gray */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Adjusted shadow for light background */
+            width: 350px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #e50914; /* Kept the same for brand color */
+            text-align: center;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="tel"],
+        .form-container select,
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff; /* Changed to white for input background */
+            color: #000; /* Black text for inputs */
+        }
+        .form-container input[type="submit"] {
+            background-color: #e50914; /* Kept the same for button */
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #d40813;
+        }
+        .form-container select {
+            background-color: #fff; /* Changed select background to white */
+            cursor: pointer;
+            color: #000; /* Changed select text color to black */
+        }
+        .form-container p {
+            font-size: 14px;
+            text-align: center;
+        }
+        .success-message {
+            display: none;
+            background-color: #28a745;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>OTT Platform Subscription Registration</h2>
+        <form id="subscriptionForm">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            
+            <select name="plan" required>
+                <option value="" disabled selected>Select Plan</option>
+                <option value="basic">Basic - $8.99/month</option>
+                <option value="standard">Standard - $13.99/month</option>
+                <option value="premium">Premium - $17.99/month</option>
+            </select>
+            
+            <input type="text" name="cardholder" placeholder="Cardholder Name" required>
+            <input type="text" name="cardnumber" placeholder="Card Number" required>
+            <input type="text" name="expiry" placeholder="MM/YY" required>
+            <input type="text" name="cvv" placeholder="CVV" required>
+
+            <input type="submit" value="Start Membership">
+        </form>
+        <div class="success-message" id="successMessage">
+            <p>Subscription Successful! Welcome to our service.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("subscriptionForm").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            document.getElementById("successMessage").style.display = "block"; // Show success message
+        });
+    </script>
+
+</body>
+</html>
+
